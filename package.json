@@ -1,7 +1,7 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this application the user can write, save and delete notes. User will be able to delete previous notes. This application will use an express backend and save and retrieve note data from a JSON file.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "express": "^4.17.1",
+    "module": "^1.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saida179/note-taker-homework.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/saida179/note-taker-homework/issues"
+  },
+  "homepage": "https://github.com/saida179/note-taker-homework#readme"
 }
