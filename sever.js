@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-module.exports = function(app) {
+//module.exports = function(app) {
 
 //GET note
 app.get("/notes", (req, res) => {
@@ -35,13 +35,20 @@ app.get("/api/notes", (req, res) => {
     });
 })
 //POST /api/notes
-app.post("/api/notes", (req,res) => {})
+app.post("/api/notes", (req,res) => {});
+
 //DELETE /api/notes:id
-app.delete("/api/notes/:id", (req, res) => {})
+app.delete("/api/notes/:id", (req, res) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+
+        fs.writeFile('./db/db.json', JSON.stringify(), (err) => {});
+    })
+});
+
 
 //HEY LISTEN TO THIS
 app.listen(PORT, function () {});
 
-};
+//};
 
 //DEPLOY THE APP TO HEROKU...?????
