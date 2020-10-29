@@ -23,7 +23,13 @@ app.get("*", (req, res) => {
 });
 
 //Get /api/notes
+app.get("/api/notees", (req, rest) => {})
 //POST /api/notes
+app.post("/api/notes", (req,res) => {})
 //DELETE /api/notes:id
+app.delete("/api/notes/:id", (req, res) => {})
+
+//HEY LISTEN TO THIS
+app.listen(PORT, function () {});
 
 //DEPLOY THE APP TO HEROKU...?????
