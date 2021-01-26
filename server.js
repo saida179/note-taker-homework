@@ -1,3 +1,4 @@
+//referring back to activity
 const fs = require("fs");
 const express = require("express");
 const path = require("path");
@@ -7,7 +8,7 @@ const db = require("./db/db.json")
 
 //express yourself
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -47,8 +48,4 @@ app.delete("/api/notes/:id", (req, res) => {
 
 
 //HEY LISTEN TO THIS
-app.listen(PORT, function () {});
-
-//};
-
-//DEPLOY THE APP TO HEROKU...?????
+app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
