@@ -1,8 +1,5 @@
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
-const UUID = require("uuid")
-const db = require("./db/db.json")
+  const fs = require("fs");
+const UUID = require("uuid");
 
 module.exports = function(app) {
 
