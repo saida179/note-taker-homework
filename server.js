@@ -1,8 +1,11 @@
+
 //referring back to activity
+const fs = require("fs");
 const express = require("express");
-const db = require("./db/db.json");
-const apiRoutes = require("./routes/apiRoutes");
-const htmlRoutes = require("./routes/htmlRoutes")
+const path = require("path");
+//const UUID = require("uuid");
+const url = require("url");
+const db = require("./db/db.json")
 
 //express yourself
 const app = express();
@@ -11,10 +14,35 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
 
 
+//module.exports = function(app) {
 
-//HEY LISTEN TO THIS
-app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
+//GET note
+app.get("/notes", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/notes.html"));
+});
+
+//GET * returning index
+app.get("*", (req, res) => {
+    return res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+//Get /api/notes
+app.get("/api/notes", (req, res) => {
+    fs.readFile('./db/db.json', "utf8", (err, data) => {
+        if (err) throw err;
+        let notes = JSON.parse(data);
+        return res.json(notes);
+    });
+})
+//POST /api/notes
+app.post("/api/notes", (req,res) => {});
+
+//DELETE /api/notes:id
+app.delete("/api/notes/:id", (req, res) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+
+        fs.writeFile('./db/db.json', JSON.stringify(), (err) => {});
+    })
+});
